@@ -1,0 +1,154 @@
+<!DOCTYPE>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+	<link rel="stylesheet" type="text/css" href="index.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	<title>TheSseyren</title>
+	<script type="text/javascript">
+	function rand(min,max){
+		return Math.floor(Math.random()*(max-min+1)+min);
+	}
+	var linkler = [
+		["Patlayan Yazılar",			"http://thesseyren.pe.hu/r"],
+		["Zpotify",						"http://zpotify.ayhanaltan.com"],
+		["Fibonnacci Sayı Dizisi",		"http://thesseyren.pe.hu/fibonacci"],
+		["Asal Sayılar",				"http://thesseyren.pe.hu/asal"],
+		["Geri Sayıcı",					"http://thesseyren.pe.hu/g"],
+		["E-Okul Ortalama Hesaplayıcı",	"http://thesseyren.pe.hu/eokul"],
+		["The Top",						"http://thesseyren.pe.hu/gereksiz/The_Top.zip"],
+		["Bölünebilme",					"http://thesseyren.pe.hu/b"]
+	];
+	function saat(){
+		var t = new Date();
+		var s = t.getHours();
+		var d = t.getMinutes();
+		if ( s < 10 ){ s = "0"+s }
+		if ( d < 10 ){ d = "0"+d }
+		$(".saat p").html(s+":"+d);
+		setTimeout("saat();", 1000);
+	}
+	function pat(){
+		$(".pat").css("color","rgb("+rand(100,255)+","+rand(100,255)+","+rand(100,255)+")");
+		setTimeout("pat();",750);
+	}
+	$(document).ready(function(){
+		var mhtml = "";
+		var bmhtml = "";
+		for ( i=0; i < linkler.length; i++ ){
+			if ( linkler[i][0] == "Patlayan Yazılar" ){
+				mhtml += "<div class=\"ikon pat\" onclick=\"kd('"+linkler[i][0]+"','"+linkler[i][1]+"')\"><div><img class=\"ikon-resim\" src=\"klasor.png\" alt=\"Klasör\"></div>"+linkler[i][0]+"</div>";
+				bmhtml += "<div class=\"satir pat\" onclick=\"kd('"+linkler[i][0]+"','"+linkler[i][1]+"')\"><img src=\"klasor.png\" class=\"ikon\">"+linkler[i][0]+"</div>";
+			}else{
+				mhtml += "<div class=\"ikon\" onclick=\"kd('"+linkler[i][0]+"','"+linkler[i][1]+"')\"><div><img class=\"ikon-resim\" src=\"klasor.png\" alt=\"Klasör\"></div>"+linkler[i][0]+"</div>";
+				bmhtml += "<div class=\"satir\" onclick=\"kd('"+linkler[i][0]+"','"+linkler[i][1]+"')\"><img src=\"klasor.png\" class=\"ikon\">"+linkler[i][0]+"</div>";
+			}
+		}
+		$(".masaustu .debug").html(mhtml);
+		$("td.ic .debug").html(bmhtml);
+		pat();
+		saat();
+		$(".baslama").delay(800).queue(function(next){
+			$(this).css({"background-image":"url(win98-intro.jpg)","background-position":"center"});
+			next();
+		}).delay(1500).queue(function(){
+			$(this).hide();
+		});
+	});
+	$(function(){
+		$(".baslat.tetikleyici").click(function(){ $(".baslat-menu").toggle(); });
+		$(".pencere").draggable({ containment: ".masaustu" }).resizable({minWidth: 200,minHeight: 200,containment: ".masaustu"});
+		$(".buyult").click(function(){ pencere(); });
+		$(".isim").dblclick(function(){ pencere(); });
+		$(".bastaki").click(function(){
+			kd("","");
+			$(".pencere").hide();
+			$(".baslat.calisan").hide();
+		});
+		$(".kucult").click(function(){ $(".pencere").hide(); });
+		$(".baslat.calisan").click(function(){ $(".pencere").toggle(); });
+		$(".masaustu").click(function(){ $(".baslat-menu").hide(); });
+		$(".saat").click(function(){ $(".ee").toggle(250); });
+		$(".bilgisayari-kapat").click(function(){
+			$(".baslama").show();
+			setTimeout(function(){
+				$(".baslama").css("background-image","");
+			},1500);
+		});
+	});
+	
+	$(document).keydown(function(e){
+		if ( e.ctrlKey && e.altKey && e.keyCode == 88 ){
+			$(".mavi-ekran").show();
+		}
+	});
+	
+	function pencere(){
+		if ( $(".pencere").attr("class") == "pencere ui-draggable ui-draggable-handle ui-resizable" ){
+			$(".pencere").css({"position":"fixed","top":"0px","left":"0px","width":"calc(100% - 10px)","height":"calc(100% - 38px)"}).draggable("disable").resizable("disable");
+		}else{
+			$(".pencere").css({"position":"fixed","top":"20px","left":"200px","width":"70%","height":"70%"}).draggable("enable").resizable("enable");
+		}
+	}
+	
+	function kd(baslik,konum){
+		$(".pencere").show();
+		$(".baslat.calisan").show();
+		$(".iframe").attr("src",konum);
+		$(".baslat-menu").hide();
+		$(".isim h1").html(baslik);
+		$(".baslat.calisan h1").html(baslik);
+		$(".alt h1 a").html(konum+" <b><== Tam ekran görmek için tıklayın.</b>").attr("href",konum);
+	}
+	</script>
+</head>
+<body>
+<div class="masaustu">
+	<div class="debug">
+		<!--<div class="ikon" onclick="kd('Free Ello Invite Codes','http://thesseyren.pe.hu/ello')"><div><img class="ikon-resim" src="klasor.png" alt="Klasör"></div>Free Ello Invite Codes</div>-->
+	</div>
+	<div class="ee">CRTL + ALT + X</div>
+</div>
+<div class="pencere">
+	<div class="isim">
+		<img src="klasor.png" class="kucuk" alt="Klasör"><h1>thesseyren.pe.hu</h1><div class="islev"><img src="1.png" class="islev bastaki"><img src="2.png" class="islev buyult"><img src="3.png" class="islev kucult"></div>
+	</div>
+	<div class="ic">
+		<iframe src="hosgeldiniz.html" scrolling="auto" frameborder="0" class="iframe"></iframe> 
+	</div>
+	<div class="alt">
+		<h1><a href=""></a></h1>
+	</div>
+</div>
+<div class="gorev-border"></div>
+<div class="gorev">
+	<div class="baslat tetikleyici">
+		<img src="baslat.png"><h1>Başlat</h1>
+	</div>
+	<div class="baslat calisan">
+		<img src="klasor.png"><h1>thesseyren.pe.hu</h1>
+	</div>
+	<div class="saat">
+		<p></p>
+	</div>
+</div>
+<div class="baslat-menu">
+	<table border="0" class="tablo">
+	<tr>
+	<td class="logo"><img src="bas-win.png"></td>
+	<td class="ic">
+		<div class="debug">
+			<!--<div class="satir" onclick="kd('Free Ello Invite Codes','http://thesseyren.pe.hu/ello')"><img src="klasor.png" class="ikon">Free Ello Invite Codes</div>-->
+		</div>
+		<div class="cizgi"></div>
+		<div class="satir bilgisayari-kapat"><img src="blg.png" class="ikon">Bilgisayarı Kapat</div>
+	</td>
+	</tr>
+	</table>
+</div>
+<div class="mavi-ekran"></div>
+<div class="baslama"></div>
+</body>
+</html>

@@ -1,0 +1,278 @@
+* {
+	margin:0;
+	padding:0;
+	cursor: default;
+	-webkit-user-select: none;    
+	-moz-user-select: none;
+	-ms-user-select: none
+}
+
+body{
+	background-color:008081;
+	font-family: MS Sans Serif;
+	font-size: 8pt;
+	color: b3ffff;
+	height:100%
+}
+
+a,
+a:hover,
+a:link,
+a:visited,
+a:active{
+	text-decoration: none;
+	color: 000
+}
+
+.masaustu .ikon{
+	margin: 0px 5px 20px;
+	width: 75px;
+	text-align: center;
+}
+
+.masaustu .ikon-resim{
+	height:30px;
+	width:30px;
+	margin-bottom:2px
+}
+
+.masaustu{
+	position:absolute;
+	float:left;
+	width: 100%;
+	height: calc(100% - 28px);
+	margin-bottom: 28px
+}
+
+.wrapper {
+	width: 85%;
+	display: inline-block;
+	position: relative
+}
+
+.wrapper:after {
+	padding-top: 56.25%;
+	display: block;
+	content: ''
+}
+
+.pencere{
+	position:fixed;
+	width: 70%;
+	height: 70%;
+	border: 5px ridge #b3b3b3;
+	top: 20px;
+	left: 200px;
+	overflow: hidden
+}
+
+.pencere .isim{
+	height:18px;
+	background-color: 000080
+}
+
+.isim h1{
+	font-weight: bold;
+	padding: 3px 0px 0px 3px;
+	font-family: MS Sans Serif;
+	font-size: 8pt;
+	color: fff;
+	letter-spacing: 0px;
+	float: left
+}
+
+.isim img{
+	width: 14px;
+	height: 14px;
+	float: left
+}
+
+.isim .kucuk{
+	float: left;
+	margin: 2px
+}
+
+.isim .islev{
+	float: right;
+	margin-top: 1px
+}
+
+.isim .bastaki{
+	margin-left: 2px;
+	margin-right: 2px
+}
+
+.pencere .ic{
+	height: -moz-calc(100% - 40px);
+	height: -webkit-calc(100% - 40px);
+	height: -o-calc(100% - 40px);
+	height: calc(100% - 40px);
+	border: 2px inset #c0c0c0;
+	background-color: c0c0c0;
+}
+
+.pencere .alt{
+	height: 16px;
+	border: 1px inset #808080;
+	background-color: c0c0c0
+}
+
+.alt h1{
+	font-weight: normal;
+	padding: 3px 0px 0px 3px;
+	font-family: MS Sans Serif;
+	font-size: 8pt;
+	color: 000;
+	letter-spacing: 0px
+}
+
+.gorev-border{
+	position: fixed;
+	bottom: 26px;
+	left: 0;
+	right: 0;
+	border-bottom: 2px inset #ecffff
+}
+
+.gorev{
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	background-color: c0c0c0;
+	color: #000;
+	height: 26px
+}
+
+.gorev .baslat{
+	height: 18px;
+	background-color: c0c0c0;
+	margin: 2px;
+	border: 1px outset #fff;
+	box-shadow: 1px 1px 000;
+	float: left;
+}
+
+.baslat h1{
+	font-weight: bold;
+	font-family: MS Sans Serif;
+	font-size: 8pt;
+	color: 000;
+	margin: 4px 3px 0px 3px;
+	float: left
+}
+
+.baslat img{
+	height: 14px;
+	width: 16px;
+	margin: 2px 0px 2px 2px;
+	float: left
+}
+
+.gorev .calisan{
+	margin-left: 8px;
+	min-width: 150px
+}
+
+.gorev .saat{
+	height: 20px;
+	background-color: c0c0c0;
+	border: 1px inset #898289;
+	margin: 2px;
+	float: right
+}
+
+.saat p{
+	margin: 5px 10px
+}
+
+iframe{
+	width: 100%;
+	height: 100%
+}
+
+.baslat-menu {
+	position: fixed;
+	bottom: 24px;
+	left: 2px;
+	background-color: c0c0c0;
+	color: 000;
+	box-shadow: 1px 1px 000;
+	border: 1px outset #fff;
+	display: none
+}
+
+.baslat-menu .tablo{
+	font-family: MS Sans Serif;
+	font-size: 8pt;
+	color: 000
+}
+
+.baslat-menu .logo{
+	vertical-align: bottom;
+	width: 21px;
+	height: 100%;
+	background-color: 000080
+}
+
+.baslat-menu .ic{
+	margin: 0px 6px 0px 6px;
+	max-width: 200px;
+	vertical-align: bottom
+}
+
+.baslat-menu .satir{
+	padding: 5px;
+	line-height: 30px
+}
+
+.baslat-menu .ikon{
+	vertical-align: middle;
+	margin-right: 8px;
+	height: 24px
+}
+
+.baslat-menu .satir:hover{
+	background-color: 000080;
+	color: fff
+}
+
+.baslat-menu .cizgi{
+	border: 1px inset #ecffff
+}
+
+.mavi-ekran{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #0000aa url(mavi-ekran.png) no-repeat center;
+	background-size: 100%;
+	z-index: 91;
+	display: none
+}
+
+.ee{
+	position: absolute;
+	right:0;
+	bottom:0;
+	display: none
+}
+
+.baslama{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #000;
+	background-size: 100%;
+	background-repeat: no-repeat;
+	z-index: 91
+}
+
+.masaustu .debug{
+	margin-bottom: 36px
+}
